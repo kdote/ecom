@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DemoApp</string>
+    <string name="alreadyUser">Already a User? <u>Login</u></string>
+</resources>
