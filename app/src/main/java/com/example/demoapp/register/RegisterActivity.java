@@ -50,7 +50,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     TextView goToLogin;
 
     RegisterContract.Presenter presenter;
-//    List<TextInputLayout> textInputLayoutList;
 
     @Inject
     ApiInterface api;
@@ -61,19 +60,10 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         setContentView(R.layout.activity_register);
 
         ((App) getApplication()).getAppComponent().inject(this);
-
         ButterKnife.bind(this);
-
         presenter = new RegisterActivityPresenter(this, api);
-//        textInputLayoutList = new ArrayList<>();
-//        addLayoutToValidate();
+
     }
-
-//    private void addLayoutToValidate() {
-//        textInputLayoutList.add(textInputFirstname);
-//        textInputLayoutList.add(textInputLastname);
-//    }
-
 
     @Override
     public void showRegisterProgressBar() {

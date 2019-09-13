@@ -2,13 +2,10 @@ package com.example.demoapp.register;
 
 import android.util.Patterns;
 
-import com.example.demoapp.Model.User;
 import com.example.demoapp.network.ApiInterface;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.JsonObject;
 
 import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
