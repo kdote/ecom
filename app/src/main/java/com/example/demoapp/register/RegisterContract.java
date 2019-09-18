@@ -31,8 +31,6 @@ public interface RegisterContract {
         String getConfirmPassword();
 
         void setErrorMessage(int inputLayout, String message);
-
-//        void setError(TextInputLayout textInputLayout);
     }
 
 }

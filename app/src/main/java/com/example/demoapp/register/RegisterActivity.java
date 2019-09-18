@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.demoapp.App;
 import com.example.demoapp.R;
+import com.example.demoapp.base.BaseActivity;
 import com.example.demoapp.login.LoginActivity;
 import com.example.demoapp.network.ApiInterface;
 import com.google.android.material.textfield.TextInputLayout;
@@ -21,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RegisterActivity extends AppCompatActivity implements RegisterContract.View {
+public class RegisterActivity extends BaseActivity implements RegisterContract.View {
 
     @BindView(R.id.textInputFirstname)
     TextInputLayout textInputFirstname;
@@ -61,6 +62,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
 
         ((App) getApplication()).getAppComponent().inject(this);
         ButterKnife.bind(this);
+        getBasePresenter().toolBarStatus(false);
+        hideBottomNavigation();
         presenter = new RegisterActivityPresenter(this, api);
 
     }

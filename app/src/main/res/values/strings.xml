@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">DemoApp</string>
+    <string name="register">Register</string>
+    <string name="login">Log In</string>
     <string name="alreadyUser">Already a User? <u>Login</u></string>
+    <string name="loginAccount">Log In to Your Account?</string>
+    <string name="inputEmailHint">Email here..</string>
+    <string name="inputPasswordHint">Password here..</string>
+    <string name="remember">Remember</string>
+    <string name="noAccount">No Account Yet?</string>
+    <string name="createAccount"><u>Create One.</u></string>
+    <string name="home">Home</string>
+    <string name="categories">Categories</string>
+    <string name="cart">Cart</string>
+    <string name="information">Info</string>
+    <string name="logOut">Log Out</string>
 </resources>

@@ -50,7 +50,7 @@ public class RegisterActivityPresenter implements RegisterContract.Presenter {
 
 
 
-    public boolean validateFirstname() {
+    private boolean validateFirstname() {
         if (view.getUserFirstname().isEmpty()){
             view.setErrorMessage(1, "Enter Your Firstname");
             return false;
@@ -61,7 +61,7 @@ public class RegisterActivityPresenter implements RegisterContract.Presenter {
         }
     }
 
-    public boolean validateLastname() {
+    private boolean validateLastname() {
         if (view.getUserLastname().isEmpty()){
             view.setErrorMessage(2, "Enter Your Lastname");
             return false;
@@ -72,7 +72,7 @@ public class RegisterActivityPresenter implements RegisterContract.Presenter {
         }
     }
 
-    public boolean validateEmail() {
+    private boolean validateEmail() {
         if (view.getUserEmail().isEmpty()){
             view.setErrorMessage(3, "Enter Your Email");
             return false;
@@ -87,7 +87,7 @@ public class RegisterActivityPresenter implements RegisterContract.Presenter {
         }
     }
 
-    public boolean validateAddress() {
+    private boolean validateAddress() {
         if (view.getUserAddress().isEmpty()){
             view.setErrorMessage(4, "Enter Your Address");
             return false;
@@ -98,7 +98,7 @@ public class RegisterActivityPresenter implements RegisterContract.Presenter {
         }
     }
 
-    public boolean validateCity() {
+    private boolean validateCity() {
         if (view.getUserCity().isEmpty()){
             view.setErrorMessage(5, "Enter Your City");
             return false;
@@ -109,7 +109,7 @@ public class RegisterActivityPresenter implements RegisterContract.Presenter {
         }
     }
 
-    public boolean validateTelephone(){
+    private boolean validateTelephone(){
         if (view.getUserTelephone().isEmpty()){
             view.setErrorMessage(6, "Enter Your Lastname.");
             return false;
@@ -124,7 +124,7 @@ public class RegisterActivityPresenter implements RegisterContract.Presenter {
         }
     }
 
-    public boolean validatePassword() {
+    private boolean validatePassword() {
         if (view.getUserPassword().isEmpty()){
             view.setErrorMessage(7, "Enter Your Password.");
             return false;
@@ -140,7 +140,7 @@ public class RegisterActivityPresenter implements RegisterContract.Presenter {
 
     }
 
-    public boolean validateConfirmPassword() {
+    private boolean validateConfirmPassword() {
         if (view.getUserPassword().isEmpty()){
             view.setErrorMessage(8, "Enter Confirm Password.");
             return false;

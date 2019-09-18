@@ -3,6 +3,8 @@ package com.example.demoapp.model;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
+    @SerializedName("id")
+    private int customerId;
     @SerializedName("firstname")
     private String firstname;
     @SerializedName("lastname")
@@ -15,17 +17,17 @@ public class User {
     private String city;
     @SerializedName("telephone")
     private String telephone;
-    @SerializedName("password")
-    private String password;
+    @SerializedName("zipcode")
+    private String zipcode;
+    @SerializedName("country")
+    private String country;
 
-    public User(String firstname, String lastname, String email, String address, String city, String telephone, String password) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.address = address;
-        this.city = city;
-        this.telephone = telephone;
-        this.password = password;
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getFirstname() {
@@ -76,11 +78,19 @@ public class User {
         this.telephone = telephone;
     }
 
-    public String getPassword() {
-        return password;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
