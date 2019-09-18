@@ -143,7 +143,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityContract
 
     @Override
     public void loginError(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        getBasePresenter().snackBarStatus(message, false);
         hideLoginProgressBar();
     }
 

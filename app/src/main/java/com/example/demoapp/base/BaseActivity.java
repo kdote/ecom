@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,8 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -29,6 +32,7 @@ import com.example.demoapp.home.HomeFragment;
 import com.example.demoapp.information.InformationFragment;
 import com.example.demoapp.login.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import javax.inject.Inject;
 
@@ -39,7 +43,7 @@ public class BaseActivity extends AppCompatActivity implements BottomNavigationV
 
     Toolbar toolbar;
     BottomNavigationView bottomNavigation;
-    RelativeLayout baseLayout;
+    CoordinatorLayout baseLayout;
 
     @Inject
     SharedPreferences preferences;
@@ -76,7 +80,6 @@ public class BaseActivity extends AppCompatActivity implements BottomNavigationV
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//        displayFragment(menuItem.getItemId(), true);
         Fragment fragment = null;
 
         switch(menuItem.getItemId()) {
@@ -98,41 +101,6 @@ public class BaseActivity extends AppCompatActivity implements BottomNavigationV
         }
         return loadFragment(fragment);
     }
-
-//    protected void displayFragment(int itemId, boolean addBAckToStack) {
-//        Fragment fragment = null;
-//
-//        switch(itemId){
-//            case R.id.home_navigation:
-//                fragment = new HomeFragment();
-//                break;
-//
-//            case R.id.categories_navigation:
-//                fragment = new CategoryFragment();
-//                break;
-//
-//            case R.id.cart_navigation:
-//                fragment = new CartFragment();
-//                break;
-//
-//            case R.id.info_navigation:
-//                fragment = new InformationFragment();
-//                break;
-//        }
-//
-//        if (fragment !=null){
-//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//            if (addBAckToStack){
-//                transaction.replace(R.id.navigationItemContainer, fragment);
-//                transaction.addToBackStack(null);
-//            }
-//            else{
-//                transaction.add(R.id.navigationItemContainer, fragment);
-//            }
-//            transaction.commit();
-//        }
-//
-//    }
 
     protected boolean loadFragment(Fragment fragment) {
         if (fragment !=null){
@@ -209,5 +177,27 @@ public class BaseActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public void hideToolBar() {
         getSupportActionBar().hide();
+    }
+
+    @Override
+    public void successSnackBar(String message) {
+        Snackbar snackbar = Snackbar.make(baseLayout, message, Snackbar.LENGTH_LONG);
+        View snackView = snackbar.getView();
+        snackView.setBackgroundColor(Color.GREEN);
+        TextView textView = snackView.findViewById(com.google.android.material.R.id.snackbar_text);
+        textView.setTextColor(Color.BLACK);
+        textView.setTextSize(18);
+        snackbar.show();
+    }
+
+    @Override
+    public void errorSnackBar(String message) {
+        Snackbar snackbar = Snackbar.make(baseLayout, message, Snackbar.LENGTH_LONG);
+        View snackView = snackbar.getView();
+        snackView.setBackgroundColor(Color.RED);
+        TextView textView = snackView.findViewById(com.google.android.material.R.id.snackbar_text);
+        textView.setTextColor(Color.BLACK);
+        textView.setTextSize(18);
+        snackbar.show();
     }
 }

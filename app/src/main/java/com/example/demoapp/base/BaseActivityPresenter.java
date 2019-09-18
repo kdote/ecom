@@ -20,4 +20,10 @@ public class BaseActivityPresenter implements BaseActivityContract.Presenter {
         if (show) view.showToolBar();
         else view.hideToolBar();
     }
+
+    @Override
+    public void snackBarStatus(String message, boolean show) {
+        if (show) view.successSnackBar(message);
+        else view.errorSnackBar(message);
+    }
 }
