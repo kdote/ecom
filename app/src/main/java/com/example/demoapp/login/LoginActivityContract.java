@@ -16,6 +16,7 @@ public interface LoginActivityContract {
         String getInputPassword();
         boolean isRemembered();
 
+        void showColorToastMessage(String message);
         void showLoginProgressBar();
         void hideLoginProgressBar();
         void loginError(String message);

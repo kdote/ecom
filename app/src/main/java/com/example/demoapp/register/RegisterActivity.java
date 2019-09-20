@@ -60,7 +60,7 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        ((App) getApplication()).getAppComponent().inject(this);
+        getAppComponent().inject(this);
         ButterKnife.bind(this);
         getBasePresenter().toolBarStatus(false);
         hideBottomNavigation();

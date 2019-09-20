@@ -4,6 +4,8 @@ public interface BaseActivityContract {
     interface Presenter{
         void toolBarStatus(boolean show);
         void snackBarStatus(String message, boolean show);
+
+        void styleableToast(String message);
     }
 
     interface View{
@@ -12,5 +14,7 @@ public interface BaseActivityContract {
 
         void successSnackBar(String message);
         void errorSnackBar(String message);
+
+        void styleToast(String message);
     }
 }

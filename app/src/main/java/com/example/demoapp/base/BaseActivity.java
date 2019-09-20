@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -28,11 +29,13 @@ import com.example.demoapp.App;
 import com.example.demoapp.R;
 import com.example.demoapp.cart.CartFragment;
 import com.example.demoapp.categories.CategoryFragment;
+import com.example.demoapp.di.component.AppComponent;
 import com.example.demoapp.home.HomeFragment;
 import com.example.demoapp.information.InformationFragment;
 import com.example.demoapp.login.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.muddzdev.styleabletoast.StyleableToast;
 
 import javax.inject.Inject;
 
@@ -71,6 +74,10 @@ public class BaseActivity extends AppCompatActivity implements BottomNavigationV
         return presenter;
     }
 
+    public AppComponent getAppComponent(){
+        return ((App) getApplication()).getAppComponent();
+    }
+
     @Override
     public void setContentView(int layoutResID) {
         baseLayout = findViewById(R.id.baseLayout);
@@ -105,7 +112,7 @@ public class BaseActivity extends AppCompatActivity implements BottomNavigationV
     protected boolean loadFragment(Fragment fragment) {
         if (fragment !=null){
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.navigationItemContainer, fragment).commit();
+            transaction.replace(R.id.navigationItemContainer, fragment).addToBackStack(null).commit();
             return true;
         }
         return false;
@@ -192,12 +199,26 @@ public class BaseActivity extends AppCompatActivity implements BottomNavigationV
 
     @Override
     public void errorSnackBar(String message) {
-        Snackbar snackbar = Snackbar.make(baseLayout, message, Snackbar.LENGTH_LONG);
+        Snackbar snackbar = Snackbar.make(baseLayout, message, Snackbar.LENGTH_INDEFINITE)
+                .setAction("OK", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    }
+                })
+                .setActionTextColor(Color.BLACK);
+
+        snackbar.setDuration(8000);
+
         View snackView = snackbar.getView();
         snackView.setBackgroundColor(Color.RED);
         TextView textView = snackView.findViewById(com.google.android.material.R.id.snackbar_text);
         textView.setTextColor(Color.BLACK);
         textView.setTextSize(18);
         snackbar.show();
+    }
+
+    @Override
+    public void styleToast(String message) {
+        StyleableToast.makeText(this, message, Toast.LENGTH_LONG, R.style.styleableToast).show();
     }
 }

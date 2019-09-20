@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="styleableToast">
+        <item name="stColorBackground">#283593</item>
+        <item name="stTextColor">#FFEA00</item>
+        <item name="stRadius">10dp</item>
+    </style>
+
 </resources>

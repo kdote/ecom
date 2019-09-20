@@ -26,4 +26,9 @@ public class BaseActivityPresenter implements BaseActivityContract.Presenter {
         if (show) view.successSnackBar(message);
         else view.errorSnackBar(message);
     }
+
+    @Override
+    public void styleableToast(String message) {
+        view.styleToast(message);
+    }
 }

@@ -72,7 +72,7 @@ public class LoginActivity extends BaseActivity implements LoginActivityContract
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        ((App) getApplication()).getAppComponent().inject(this);
+        getAppComponent().inject(this);
         ButterKnife.bind(this);
         getBasePresenter().toolBarStatus(false);
         hideBottomNavigation();
@@ -130,6 +130,11 @@ public class LoginActivity extends BaseActivity implements LoginActivityContract
     }
 
     @Override
+    public void showColorToastMessage(String message) {
+        getBasePresenter().styleableToast(message);
+    }
+
+    @Override
     public void showLoginProgressBar() {
         loginProgressBar.setVisibility(View.VISIBLE);
         loginButton.setVisibility(View.GONE);
@@ -168,6 +173,8 @@ public class LoginActivity extends BaseActivity implements LoginActivityContract
         startActivity(MainActivity.createIntent(this));
         finish();
     }
+
+
 
     @OnClick(R.id.loginButton)
     public void setLoginButton(){

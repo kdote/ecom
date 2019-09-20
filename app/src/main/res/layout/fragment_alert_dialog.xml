@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="50dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/dialogLogo"
+        android:layout_marginTop="-23dp"
+        android:layout_centerHorizontal="true"
+        app:civ_border_width="5dp"
+        app:civ_border_color="@color/white"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/upperLayout"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleText"
+            android:text="@string/dialogTitle"
+            android:textSize="23sp"
+            android:textAlignment="center"
+            android:padding="7dp"
+            android:layout_marginTop="18dp"
+            android:textStyle="bold"
+            android:elevation="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bodyText"
+            android:text="@string/dialogBody"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:padding="25dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/upperLayout"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/cancelButton"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:text="@string/dialogCancel"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/okButton"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:text="@string/dialogOk"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -2,6 +2,7 @@ package com.example.demoapp.login;
 
 import android.content.SharedPreferences;
 import android.util.Patterns;
+import android.widget.Toast;
 
 import com.example.demoapp.model.Auth;
 import com.example.demoapp.network.ApiInterface;
@@ -36,6 +37,7 @@ public class LoginActivityPresenter implements LoginActivityContract.Presenter {
                 if (auth.isSuccess()){
                     saveLoginDetails(view.isRemembered(), auth);
                     view.loginSuccess();
+                    view.showColorToastMessage("Login SuccessFul!");
                 }
                 else{
                     view.loginError("Incorrect email/ password");
