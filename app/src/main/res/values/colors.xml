@@ -7,4 +7,6 @@
     <color name="lightBlue">#CCF8F4</color>
     <color name="lightBlue1">#72E0CD</color>
     <color name="black">#0C0C0C</color>
+
+    <item name="transparent" type="color">#CC000000</item>
 </resources>

@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.demoapp.R;
 import com.example.demoapp.alert_dialog.AlertDialog;
-import com.example.demoapp.alert_dialog.AlertDialogFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
